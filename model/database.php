@@ -1,11 +1,17 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=my_guitar_shop1';
-    $username = 'mgs_user';
-    $password = 'pa55word';
+        $uname='kxg2';
+        $pass='lucdlNiqZ';
+        $hostname='sql1.njit.edu';
 
-    try {
-        $db = new PDO($dsn, $username, $password);
-    } catch (PDOException $e) {
+        $dsn="mysql:host=$hostname;dbname=$uname";
+        try
+        {
+                $db=new PDO($dsn,$uname,$pass);
+        }
+
+
+
+ catch (PDOException $e) {
         $error_message = $e->getMessage();
         include('../errors/database_error.php');
         exit();

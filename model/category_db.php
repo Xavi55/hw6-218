@@ -20,4 +20,24 @@ function get_category_name($category_id) {
     $category_name = $category['categoryName'];
     return $category_name;
 }
+
+
+function delCat($name) {
+    global $db;
+    $query = 'DELETE FROM categories WHERE categoryName = :name';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function addCat($name) 
+{
+    global $db;
+    $query = "INSERT INTO categories (categoryName) VALUES (:name)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
+    $statement->execute();
+    $statement->closeCursor();
+}
 ?>

@@ -6,11 +6,41 @@
         <tr>
             <th>Name</th>
             <th>&nbsp;</th>
-        </tr>        
-        <!-- add category rows here -->
+	</tr>
+
+
+
+
+    <?php foreach ($categories as $category) : ?>
+            <tr>
+                <td><?php echo $category['categoryName']; ?></td>
+		<td><form action="." method="post">
+                 <input type="hidden" name="action" value="delete_category">
+                    <input type="hidden" name="cName"
+                           value="<?php echo $category['categoryName']; ?>">
+                    <input type="submit" value="Delete">
+                </form></td>
+            </tr>
+            <?php endforeach; ?>
+
+
+
+<!--
+		<?php foreach ( $categories as $category )
+		{
+			echo '<tr>';
+			echo '<td>' .  $category['categoryName'] . '</td>';
+			echo '<td><form action="." method="post" <input type="hidden" name="action" value="delete_category"><input type="hidden" name="cName" value=' . $category['categoryName'] . '><input type="submit" value="Delete"></form></td>';
+			echo '</tr>';
+		}
+		?>
+-->
+
     </table>
 
-    <h2>Add Category</h2>
+    <!--<h2>Add Category</h2>-->
+    <p><a href="index.php?action=category_add">Add Category</a></p>
+
     <!-- add code for form here -->
 
     <p><a href="index.php?action=list_products">List Products</a></p>
